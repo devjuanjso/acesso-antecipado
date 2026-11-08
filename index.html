@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ParkingSpace · Acesso antecipado</title>
+<meta name="description" content="Jogue o ParkingSpace antes de todo mundo: arrume sua coleção de carrinhos, dirija pelo quarto, corra no quintal e voe pelo bairro. Grátis no Android.">
+<meta name="theme-color" content="#F07A12">
+<meta property="og:title" content="ParkingSpace · Acesso antecipado">
+<meta property="og:description" content="Arrume, dirija, voe. Jogue grátis no Android antes do lançamento.">
+<meta property="og:image" content="img/poster.jpg">
+<link rel="icon" href="img/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#F07A12; --orange-dark:#C85E00; --blue:#2F8CF0; --green:#22B573;
+  --bg:#FFF7EE; --card:#FFFFFF; --ink:#1E2230; --muted:#5E6577; --line:#F1E2CF;
+  --shadow:0 10px 30px rgba(120,60,0,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#14161D; --card:#1E2230; --ink:#F4F5F8; --muted:#A9AFBF; --line:#2C3242; --shadow:0 10px 30px rgba(0,0,0,.35); }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-size:18px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px}
+
+/* ---------- topo ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#1B2340 0%,#2B1B3D 55%,#5A2A10 100%);color:#fff;padding:28px 0 36px;border-radius:0 0 32px 32px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 10%,rgba(255,200,80,.25),transparent 40%),radial-gradient(circle at 90% 80%,rgba(47,140,240,.3),transparent 45%)}
+.hero .wrap{position:relative}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:56px;height:56px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.logo{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:34px;letter-spacing:-.5px;line-height:1}
+.logo span{color:var(--orange)}
+.badge{display:inline-block;margin-top:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:.5px}
+h1{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:clamp(34px,9vw,46px);line-height:1.05;margin:12px 0 10px}
+.hero p{margin:0 0 20px;color:#E7E9F3;font-size:19px}
+.phone{margin:6px auto 0;width:min(72vw,300px);aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:6px solid #0C0E14;box-shadow:0 20px 50px rgba(0,0,0,.5);background:#000}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.chip{background:rgba(255,255,255,.12);padding:8px 14px;border-radius:999px;font-weight:800;font-size:15px}
+
+/* ---------- botões ---------- */
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;padding:14px 18px;border:0;border-radius:18px;font:800 19px Nunito,sans-serif;text-decoration:none;cursor:pointer;color:#fff;background:var(--orange);box-shadow:0 6px 0 var(--orange-dark);transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--orange-dark)}
+.btn.blue{background:var(--blue);box-shadow:0 6px 0 #1A63B5}
+.btn.green{background:var(--green);box-shadow:0 6px 0 #158a55}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:none;min-height:48px;font-size:16px}
+.cta-top{margin-top:22px}
+
+/* ---------- passos ---------- */
+section{padding:34px 0 8px}
+h2{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:30px;line-height:1.1;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 18px}
+.progress{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0 12px}
+.bar{height:12px;background:var(--line);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),#FFB547);border-radius:999px;transition:width .4s}
+.bar-label{display:flex;justify-content:space-between;font-weight:800;font-size:14px;color:var(--muted);margin-top:6px}
+.step{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:20px;margin:0 0 16px;box-shadow:var(--shadow);transition:border-color .3s, opacity .3s}
+.step.done{border-color:var(--green)}
+.step-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.num{flex:0 0 52px;height:52px;border-radius:16px;display:grid;place-items:center;font:800 26px "Baloo 2",sans-serif;color:#fff;background:var(--orange)}
+.step.done .num{background:var(--green);font-size:0}
+.step.done .num::after{content:"✓";font-size:28px}
+.step h3{font-family:"Baloo 2",sans-serif;font-size:23px;line-height:1.15;margin:0}
+.step p{margin:0 0 14px;color:var(--muted)}
+.step p b{color:var(--ink)}
+.tip{display:flex;gap:10px;background:rgba(240,122,18,.1);border-radius:14px;padding:12px 14px;font-size:16px;margin:0 0 14px}
+.check{display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px 14px;border-radius:14px;border:2px dashed var(--line);font-weight:800;cursor:pointer;user-select:none}
+.check input{width:26px;height:26px;accent-color:var(--green);flex:none}
+.step.done .check{border-style:solid;border-color:var(--green);color:var(--green)}
+
+/* ---------- galeria ---------- */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gallery figure{margin:0;border-radius:18px;overflow:hidden;background:var(--card);border:2px solid var(--line)}
+.gallery img{width:100%;aspect-ratio:9/12;object-fit:cover;display:block}
+.gallery figcaption{padding:8px 10px;font-weight:800;font-size:15px}
+
+/* ---------- ajuda ---------- */
+details{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";font-size:24px;line-height:1;color:var(--orange)}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--muted)}
+
+.final{margin:30px 0 0;background:linear-gradient(135deg,var(--orange),#FFB547);color:#fff;border-radius:28px;padding:26px 20px;text-align:center}
+.final h2{color:#fff}
+.final p{margin:0 0 18px}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:28px 0 40px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);background:#1E2230;color:#fff;padding:12px 18px;border-radius:14px;font-weight:800;transition:transform .3s;z-index:20}
+.toast.show{transform:translate(-50%,0)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <img src="img/icone.png" alt="Ícone do ParkingSpace">
+      <div class="logo">Parking<span>Space</span></div>
+    </div>
+    <span class="badge">🎟️ ACESSO ANTECIPADO · ANDROID</span>
+    <h1>Jogue antes de todo mundo</h1>
+    <p>Uma caixa de carrinhos virou no quarto. Guarde cada um no lugar certo, depois saia dirigindo, corra no quintal e voe pelo bairro.</p>
+    <div class="phone">
+      <video src="img/gameplay.mp4" poster="img/poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo do jogo"></video>
+    </div>
+    <div class="chips">
+      <span class="chip">📦 Arrume</span><span class="chip">🏎️ Dirija</span><span class="chip">✈️ Voe</span><span class="chip">💸 Grátis</span>
+    </div>
+    <a class="btn cta-top" href="#passos">Quero jogar 👇</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="passos">
+    <h2>3 passos, 2 minutos</h2>
+    <p class="sub">Faça tudo <b>no celular Android</b>, com a <b>mesma conta Google</b> da Play Store.</p>
+
+    <div class="progress" aria-hidden="true">
+      <div class="bar"><i id="bar"></i></div>
+      <div class="bar-label"><span id="barText">0 de 3 feitos</span><span>🏁</span></div>
+    </div>
+
+    <article class="step" data-step="1">
+      <div class="step-head"><div class="num">1</div><h3>Entre no grupo de testes</h3></div>
+      <p>Abra o link e toque em <b>“Participar do grupo”</b>. É isso que libera o jogo para a sua conta.</p>
+      <a class="btn blue" href="https://groups.google.com/g/testesres" target="_blank" rel="noopener">👥 Abrir o grupo</a>
+      <label class="check"><input type="checkbox"> Entrei no grupo</label>
+    </article>
+
+    <article class="step" data-step="2">
+      <div class="step-head"><div class="num">2</div><h3>Vire testador</h3></div>
+      <p>Toque em <b>“Tornar-se testador”</b>. Quando aparecer <b>“Você é um testador”</b>, deu certo.</p>
+      <div class="tip">⏳ <span>Se aparecer erro, espere alguns minutos depois do passo 1 e tente de novo. O Google às vezes demora.</span></div>
+      <a class="btn" href="https://play.google.com/apps/testing/com.parkingspace.game" target="_blank" rel="noopener">⭐ Virar testador</a>
+      <label class="check"><input type="checkbox"> Já sou testador</label>
+    </article>
+
+    <article class="step" data-step="3">
+      <div class="step-head"><div class="num">3</div><h3>Instale e jogue</h3></div>
+      <p>Baixe pela Play Store, como qualquer app. <b>Deixe instalado</b> e jogue quando quiser.</p>
+      <a class="btn green" href="https://play.google.com/store/apps/details?id=com.parkingspace.game" target="_blank" rel="noopener">▶️ Baixar na Play Store</a>
+      <label class="check"><input type="checkbox"> Instalei!</label>
+    </article>
+  </section>
+
+  <section>
+    <h2>O que tem no jogo</h2>
+    <p class="sub">Tudo isso já dá pra jogar no acesso antecipado.</p>
+    <div class="gallery">
+      <figure><img src="img/pilha.jpg" alt="Pilha de carrinhos caindo no quarto" loading="lazy"><figcaption>📦 A pilha no quarto</figcaption></figure>
+      <figure><img src="img/encaixe.jpg" alt="Carrinhos guardados nos nichos da estante" loading="lazy"><figcaption>🔢 Cada um no seu nicho</figcaption></figure>
+      <figure><img src="img/quintal.jpg" alt="Corrida de carrinhos no quintal" loading="lazy"><figcaption>🏁 Corrida no quintal</figcaption></figure>
+      <figure><img src="img/aviao.jpg" alt="Aviãozinho voando sobre o bairro" loading="lazy"><figcaption>✈️ Voo pelo bairro</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Deu problema?</h2>
+    <details><summary>Aparece “Item não encontrado” na Play Store</summary><p>Confira se fez o passo 1 com a <b>mesma conta Google</b> do celular. Depois espere de alguns minutos a algumas horas: o Google demora para liberar quem acabou de entrar.</p></details>
+    <details><summary>Tenho mais de uma conta Google no celular</summary><p>Na Play Store, toque na sua foto no canto de cima e troque para a conta que entrou no grupo. Depois abra o link do passo 3 de novo.</p></details>
+    <details><summary>Funciona no iPhone?</summary><p>Ainda não. Por enquanto o ParkingSpace é só para Android.</p></details>
+    <details><summary>É pago? Tem propaganda?</summary><p>É grátis e não tem propaganda.</p></details>
+    <details><summary>Como mando uma ideia ou aviso de bug?</summary><p>Na página do jogo na Play Store, use “Enviar feedback ao desenvolvedor” ou deixe uma avaliação do teste. Toda mensagem é lida!</p></details>
+  </section>
+
+  <div class="final">
+    <h2>Chama a galera! 🚗💨</h2>
+    <p>Quanto mais gente testando, mais rápido o jogo sai para todo mundo.</p>
+    <button class="btn ghost" id="share" style="background:#fff;color:#C85E00;border:0">📲 Compartilhar esta página</button>
+  </div>
+</main>
+
+<footer>ParkingSpace · feito com carinho por um dev independente</footer>
+<div class="toast" id="toast">Link copiado! 📋</div>
+
+<script>
+(function(){
+  var KEY = 'ps-acesso-passos';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  function refresh(){
+    var n = 0;
+    steps.forEach(function(s){ var on = s.querySelector('input').checked; s.classList.toggle('done', on); if (on) n++; });
+    document.getElementById('bar').style.width = (n / steps.length * 100) + '%';
+    document.getElementById('barText').textContent = n === steps.length ? 'Pronto! Bom jogo 🎉' : n + ' de ' + steps.length + ' feitos';
+  }
+  steps.forEach(function(s){
+    var id = s.getAttribute('data-step'), box = s.querySelector('input');
+    box.checked = !!saved[id];
+    box.addEventListener('change', function(){
+      saved[id] = box.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      refresh();
+      var next = steps[steps.indexOf(s) + 1];
+      if (box.checked && next) setTimeout(function(){ next.scrollIntoView({behavior:'smooth', block:'center'}); }, 250);
+    });
+    // tocar no botão do passo já marca o passo como feito
+    s.querySelector('a.btn').addEventListener('click', function(){
+      setTimeout(function(){ if (!box.checked){ box.checked = true; box.dispatchEvent(new Event('change')); } }, 600);
+    });
+  });
+  refresh();
+
+  var toast = document.getElementById('toast');
+  document.getElementById('share').addEventListener('click', function(){
+    var data = { title: 'ParkingSpace · Acesso antecipado', text: 'Joga comigo! Arruma carrinhos, dirige e voa 🚗✈️', url: location.href };
+    if (navigator.share) { navigator.share(data).catch(function(){}); return; }
+    try {
+      navigator.clipboard.writeText(location.href).then(function(){ toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 1800); });
+    } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
