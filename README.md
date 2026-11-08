@@ -24,20 +24,14 @@ Página que explica, passo a passo e otimizada para celular, como virar testador
 | `img/poster.jpg` | Primeiro quadro do vídeo, aparece enquanto ele carrega |
 | `img/icone.png` | Ícone do app (aba do navegador) |
 | `img/pilha.jpg`, `encaixe.jpg`, `quintal.jpg`, `aviao.jpg` | Imagens da galeria |
-| `.github/workflows/pages.yml` | GitHub Actions que publica o site a cada push na `main` |
 | `.nojekyll` | Diz ao GitHub Pages para servir os arquivos como estão |
 
 ## Como publicar (só na primeira vez)
-1. Envie os arquivos:
-   ```bash
-   git add .
-   git commit -m "Página de acesso antecipado"
-   git push -u origin main
-   ```
-2. No GitHub, abra o repositório e vá em **Settings → Pages → Build and deployment → Source** e escolha **GitHub Actions**.
-3. Vá na aba **Actions**: o workflow **Publicar página** roda sozinho (se não rodar, clique nele e em **Run workflow**). Em cerca de 1 minuto o link acima fica no ar.
+No GitHub, abra o repositório e vá em **Settings → Pages → Build and deployment**:
+- **Source:** Deploy from a branch
+- **Branch:** `main` e pasta `/ (root)` → **Save**
 
-Depois disso, todo `git push` na `main` atualiza a página sozinho.
+Em 1 ou 2 minutos o link acima fica no ar. Depois disso, todo `git push` na `main` atualiza a página sozinho.
 
 ## Como editar
 - **Textos e links:** procure no `index.html` (os links dos 3 passos estão nas tags `<a class="btn ...">`).
